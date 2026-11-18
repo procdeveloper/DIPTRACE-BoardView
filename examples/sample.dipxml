@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Source Type="DipTrace-PCB" Version="5.3.5.1" Units="mm">
+  <Library Type="DipTrace-ComponentLibrary">
+    <Library Type="DipTrace-PatternLibrary">
+      <PadStyles>
+        <PadStyle Name="SMT" Type="Surface"><MainStack Shape="Rectangle" Width="1" Height="0.5"/></PadStyle>
+        <PadStyle Name="THT" Type="Through" Hole="0.9"><MainStack Shape="Ellipse" Width="1.6" Height="1.6"/></PadStyle>
+      </PadStyles>
+      <Patterns>
+        <Pattern Id="0" PatternStyle="R0805">
+          <Pads>
+            <Pad Id="1" Style="SMT" X="-1" Y="0"><Number>1</Number><Note/></Pad>
+            <Pad Id="2" Style="SMT" X="1" Y="0"><Number>2</Number><Note/></Pad>
+          </Pads>
+        </Pattern>
+        <Pattern Id="1" PatternStyle="HDR">
+          <Pads>
+            <Pad Id="1" Style="THT" X="0" Y="0"><Number>10</Number></Pad>
+            <Pad Id="2" Style="THT" X="2.54" Y="0"><Number>2</Number></Pad>
+          </Pads>
+        </Pattern>
+        <Pattern Id="2" PatternStyle="BGA">
+          <Pads>
+            <Pad Id="1" Style="SMT" X="-1" Y="1"><Number>A1</Number><Note>VDD IO</Note></Pad>
+            <Pad Id="2" Style="SMT" X="1" Y="1"><Number>A2</Number><Note>RST</Note></Pad>
+          </Pads>
+        </Pattern>
+        <Pattern Id="3" PatternStyle="HOLE"><Holes><Hole X="0" Y="0" Diam="3" HoleDiam="3"/></Holes></Pattern>
+      </Patterns>
+    </Library>
+  </Library>
+  <Board>
+    <BoardOutline>
+      <Points>
+        <Point X="0" Y="0"/><Point X="50" Y="0"/><Point X="50" Y="40"/><Point X="0" Y="40"/>
+      </Points>
+    </BoardOutline>
+    <Components>
+      <Component Id="0" PatternStyle="R0805" X="10" Y="10" Side="Top">
+        <RefDes>R1</RefDes>
+        <Pads><Pad Id="1" NetId="0"/><Pad Id="2" NetId="1"/></Pads>
+      </Component>
+      <Component Id="1" PatternStyle="R0805" X="20" Y="10" Angle="1.5707963268" Side="Bottom">
+        <RefDes>R2</RefDes>
+        <Pads><Pad Id="1" NetId="0"/><Pad Id="2"/></Pads>
+      </Component>
+      <Component Id="2" PatternStyle="HDR" X="30" Y="20" Side="Top">
+        <RefDes>J 1</RefDes>
+        <Pads><Pad Id="1" NetId="1"/><Pad Id="2" NetId="1"/></Pads>
+      </Component>
+      <Component Id="3" PatternStyle="BGA" X="30,5" Y="30" Side="Top">
+        <RefDes>U1</RefDes>
+        <Pads><Pad Id="1" NetId="1"/><Pad Id="2" NetId="0"/></Pads>
+      </Component>
+      <Component Id="4" PatternStyle="HOLE" X="5" Y="5"><RefDes>MH1</RefDes></Component>
+      <Component Id="5" Type="Via" ViaStyle="0" X="6" Y="6"><Pads><Pad Id="1" NetId="0"/></Pads></Component>
+      <Component Id="6" PatternStyle="R0805" X="1" Y="1" Enabled="N">
+        <RefDes>DEAD</RefDes><Pads><Pad Id="1"/><Pad Id="2"/></Pads>
+      </Component>
+    </Components>
+    <Nets>
+      <Net Id="0"><Name>GND</Name></Net>
+      <Net Id="1"><Name>V 3V3</Name></Net>
+    </Nets>
+    <Shapes>
+      <Shape Id="0" Type="Rectangle" Layer="Board Cutout">
+        <Points><Point X="40" Y="30"/><Point X="45" Y="35"/></Points>
+      </Shape>
+    </Shapes>
+  </Board>
+</Source>
